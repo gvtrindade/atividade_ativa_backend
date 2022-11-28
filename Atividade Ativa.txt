@@ -1,0 +1,24 @@
+Com base em nossas aulas ao vivo, fomos capazes de construir uma aplicação através de conceitos relacionados a linguagem python e ao framework django.
+
+
+
+Dito isso, construa uma aplicação utilizando python e o framework django para um sistema de votação de qualidade do serviço prestado por uma pizzaria. Para isso inclua a pergunta na enquete:
+
+
+
+“De 0 a 10, qual nota você dá para o rodízio de pizzas?”
+
+E construa 11 opções (de zero a dez) de votação. Além disso, o resultado da votação deverá ser armazenado e mostrado ao usuário ao término da votação.
+
+
+
+Requisitos:
+
+Utilizar o shell python para realizar a inclusãoda pergunta (10%)
+Utilizar o shell python para realizar a inclusãodas opções de voto (10%)
+Criar um usuário de administrador com login,email e senha conforme visto em sala (10%)
+Importar o modelo de pergunta para a página doadmin (10%)
+Renderizar os modelos de index, results e voteconforme visto em sala (10%)
+Gerar um modelo de html para o index, results evote conforme visto em sala (10%)
+Implementar o sistema de formulário através dométodo POST em vote.html (10%)
+Testar o sistema e verificar se o mesmo foicapaz de computar votos e armazenar no servidor (30%)
