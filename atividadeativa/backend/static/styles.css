@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: aquamarine;
+    padding: 0.8em;
+}
+
+main {
+    height: calc(100% - 7em);
+    text-align: center;
+}
+
+a,
+input {
+    border: 1px black solid;
+    text-decoration: none;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: black;
+    margin-left: 0.5em;
+}
+
+footer {
+    background-color: aquamarine;
+    padding: 1em;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    list-style-type: none;
+    padding: 1em;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

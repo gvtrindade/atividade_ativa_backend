@@ -1,113 +1,33 @@
+{% load static %}
 <div>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
   <header>
     <h1>Rodízio de Pizza</h1>
   </header>
   <main>
     <div style="padding: 1em;">
-      <h2>Resultados da pesquisa</h2>
+      {% csrf_token %}
+      {% if question %}
+      <h2>{{ question.text }}</h2>
       <ul>
+        {% for option in question.option_set.all %}
         <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>0</p>
+          <div --bar-height="{{ option.text }}em"
+            style="background-color: black; height: var(--bar-height); width: 1em"></div>
+          <p>{{ option.text }}</p>
         </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>1</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>2</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>3</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>4</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>5</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>6</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>7</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>8</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>9</p>
-        </li>
-        <li>
-          <div style="background-color: black; height: 5em; width: 1em"></div>
-          <p>10</p>
-        </li>
+        {% endfor%}
       </ul>
+
+      {% else %}
+      <p>Erro ao carregar pergunta</p>
+
+      {% endif %}
+
     </div>
     <div class="botoes">
-      <a href="/">Página inicial</a>
-      <a href="/vote">Vote aqui!</a>
+      <a href="{% url 'backend:index' %}">Página inicial</a>
     </div>
   </main>
   <footer>Gabriel Trindade - 2186101052</footer>
 </div>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  header {
-    background-color: aquamarine;
-    padding: 0.8em;
-  }
-
-  main {
-    height: calc(100% - 7em);
-    max-width: 80%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  a {
-    border: 1px black solid;
-    text-decoration: none;
-    padding: 0.5em;
-    border-radius: 5px;
-    color: black;
-    margin-left: 0.5em;
-  }
-
-  footer {
-    background-color: aquamarine;
-    padding: 1em;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  ul{
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    list-style-type: none;
-    padding: 1em;
-  }
-
-  .botoes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

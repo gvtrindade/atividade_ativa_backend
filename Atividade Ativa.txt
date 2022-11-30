@@ -14,11 +14,11 @@ E construa 11 opções (de zero a dez) de votação. Além disso, o resultado da
 
 Requisitos:
 
-Utilizar o shell python para realizar a inclusãoda pergunta (10%)
-Utilizar o shell python para realizar a inclusãodas opções de voto (10%)
-Criar um usuário de administrador com login,email e senha conforme visto em sala (10%)
-Importar o modelo de pergunta para a página doadmin (10%)
-Renderizar os modelos de index, results e voteconforme visto em sala (10%)
-Gerar um modelo de html para o index, results evote conforme visto em sala (10%)
+Utilizar o shell python para realizar a inclusão da pergunta (10%)
+Utilizar o shell python para realizar a inclusão das opções de voto (10%)
+Criar um usuário de administrador com login, email e senha conforme visto em sala (10%)
+Importar o modelo de pergunta para a página do admin (10%)
+Renderizar os modelos de index, results e vote conforme visto em sala (10%)
+Gerar um modelo de html para o index, results e vote conforme visto em sala (10%)
 Implementar o sistema de formulário através dométodo POST em vote.html (10%)
 Testar o sistema e verificar se o mesmo foicapaz de computar votos e armazenar no servidor (30%)

@@ -1,52 +1,25 @@
+{% load static %}
 <div>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
   <header>
     <h1>Rodízio de Pizza</h1>
   </header>
   <main>
-    <div class="botoes" style="padding: 1em;">
-      <a href="/vote">Vote aqui!</a>
-      <a href="/results">Acompanhe os resultados</a>
-    </div>
+    {% if latest_question_list %}
+      <ul>
+        {% for question in latest_question_list %}
+          <li>
+            <a href="{% url 'backend:vote' question.id %}">{{ question.text }}</a>
+          </li>
+        {% endfor%}
+      </ul>
+
+    {% else %}
+      <p>Não há perguntas</p>  
+
+    {% endif %}
+
   </main>
+
   <footer>Gabriel Trindade - 2186101052</footer>
 </div>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  header {
-    background-color: aquamarine;
-    padding: 0.8em;
-  }
-
-  main {
-    height: calc(100% - 7em);
-  }
-
-  a {
-    border: 1px black solid;
-    text-decoration: none;
-    padding: 0.5em;
-    border-radius: 5px;
-    color: black;
-    margin-left: 0.5em;
-  }
-
-  footer {
-    background-color: aquamarine;
-    padding: 1em;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .botoes {
-    display: flex;
-    justify-content: center;
-  }
-</style>

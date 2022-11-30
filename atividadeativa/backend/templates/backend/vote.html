@@ -1,84 +1,35 @@
+{% load static %}
 <div>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
   <header>
     <h1>Rodízio de Pizza</h1>
   </header>
   <main>
     <div style="padding: 1em;">
-        <form action="">
-            <h2>De 0 a 10, quanto você gostou do rodízio?</h2>
-            <div style="padding: 1em;">
-              <input id="0" type="radio" value="0" name="radio" />
-              <label for="0">0</label>
-              <input id="1" type="radio" value="1" name="radio" />
-              <label for="1">1</label>
-              <input id="2" type="radio" value="2" name="radio" />
-              <label for="2">2</label>
-              <input id="3" type="radio" value="3" name="radio" />
-              <label for="3">3</label>
-              <input id="4" type="radio" value="4" name="radio" />
-              <label for="4">4</label>
-              <input id="5" type="radio" value="5" name="radio" />
-              <label for="5">5</label>
-              <input id="6" type="radio" value="6" name="radio" />
-              <label for="6">6</label>
-              <input id="7" type="radio" value="7" name="radio" />
-              <label for="7">7</label>
-              <input id="8" type="radio" value="8" name="radio" />
-              <label for="8">8</label>
-              <input id="9" type="radio" value="9" name="radio" />
-              <label for="9">9</label>
-              <input id="10" type="radio" value="10" name="radio" />
-              <label for="10">10</label>
-            </div>
-            <input type="submit"></input>
-        </form>
+
+      <form action="{% url 'backend:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <h2>{{ question.text }}</h2>
+        <div style="padding: 1em;">
+          {% for option in question.option_set.all %}
+
+          <input id="{{option.id}}" type="radio" value="{{option.text}}" name="radio" />
+          <label for="{{option.text}}">{{option.text}}</label>
+
+          {% endfor %}
+
+        </div>
+        <input type="submit"></input>
+
+      </form>
+
     </div>
+
     <div class="botoes">
-      <a href="/">Página inicial</a>
-      <a href="/results">Acompanhe os resultados</a>
+      <a href="{% url 'backend:index' %}">Página inicial</a>
+      <a href="{% url 'backend:results' question.id %}">Acompanhe os resultados</a>
     </div>
+
   </main>
   <footer>Gabriel Trindade - 2186101052</footer>
 </div>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  header {
-    background-color: aquamarine;
-    padding: 0.8em;
-  }
-
-  main {
-    height: calc(100% - 7em);
-    text-align: center;
-  }
-
-  a, input {
-    border: 1px black solid;
-    text-decoration: none;
-    padding: 0.5em;
-    border-radius: 5px;
-    color: black;
-    margin-left: 0.5em;
-  }
-
-  footer {
-    background-color: aquamarine;
-    padding: 1em;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .botoes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
