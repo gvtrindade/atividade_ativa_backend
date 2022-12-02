@@ -12,9 +12,8 @@
       <ul>
         {% for option in question.option_set.all %}
         <li>
-          <div --bar-height="{{ option.text }}em"
-            style="background-color: black; height: var(--bar-height); width: 1em"></div>
           <p>{{ option.text }}</p>
+          <div style="background-color: black; height: {{ option.votes }}em; width: 1em"></div>
         </li>
         {% endfor%}
       </ul>

@@ -13,13 +13,13 @@
         <div style="padding: 1em;">
           {% for option in question.option_set.all %}
 
-          <input id="{{option.id}}" type="radio" value="{{option.text}}" name="radio" />
+          <input id="{{option.id}}" type="radio" value="{{option.text}}" name="option" />
           <label for="{{option.text}}">{{option.text}}</label>
 
           {% endfor %}
 
         </div>
-        <input type="submit"></input>
+        <input type="submit" value="Enviar"></input>
 
       </form>
 
